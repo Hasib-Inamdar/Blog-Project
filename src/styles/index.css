@@ -1,3 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/*   font-family: "Montserrat", sans-serif; */
+/*   font-family: "Baskervville", serif; */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base Typography */
+@layer base {
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Baskervville", serif;
+  }
+}
+
+/* NAVBAR */
+@layer components {
+  .navbar-sec {
+    @apply flex gap-2 justify-between items-center px-10 py-3;
+  }
+  .navbar-sec .logo-sec {
+    @apply text-center;
+  }
+  .navbar-sec .logo-sec .logo-heading {
+    @apply text-5xl font-[Baskervville];
+  }
+  .navbar-sec .logo-sec .logo-tagline {
+    @apply text-xs font-[Montserrat];
+  }
+  .menu-sec {
+    @apply flex gap-7 justify-between items-center;
+  }
+}
