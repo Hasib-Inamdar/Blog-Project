@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Hasib Inamdar",
+      "email": "hasib@example.com",
+      "password": "123456",
+      "profileImage": "https://i.pravatar.cc/150?img=12",
+      "bio": "Frontend developer who loves React and clean UI."
+    }
+  ],
+
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Getting Started with React",
+      "description": "A beginner-friendly introduction to React.",
+      "body": "React is a JavaScript library for building user interfaces...",
+      "authorId": 1,
+      "authorName": "Hasib Inamdar",
+      "date": "2026-01-20",
+      "image": "https://picsum.photos/800/400?random=1",
+      "reactions": {
+        "likes": 5,
+        "comments": []
+      }
+    }
+  ]
+}
