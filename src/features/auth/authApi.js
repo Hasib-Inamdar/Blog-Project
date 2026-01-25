@@ -2,18 +2,42 @@ import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { createApi } from "@reduxjs/toolkit/query/react";
 
 export const authApi = createApi({
-  reducerPath: "UserAuth",
+  reducerPath: "authApi",
 
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://locastorage:3001",
+    baseUrl: "http://localhost:3001",
   }),
 
-  tagTypes: ["user"],
+  tagTypes: ["users"],
 
-  endpoints: (builder) => {
-    getUser: builder.query({
+  endpoints: (builder) => ({
+    // Get All users
+    getAllUsers: builder.query({
       query: () => "/users",
-      providesTags: ["user"],
-    });
-  },
+      providesTags: ["users"],
+    }),
+
+    //Get specific user
+    getUser: builder.query({
+      query: (userID) => `/users/${userID}`,
+      providesTags: ["users"],
+    }),
+
+    addUser: builder.mutation({
+      query: (newUser) => ({
+        url: "/users",
+        method: "POST",
+        body: newUser,
+      }),
+      invalidatesTags: ["users"],
+    }),
+  }),
 });
+
+export const {
+  useGetAllUsersQuery,
+  useLazyGetAllUsersQuery,
+  useGetUserQuery,
+  useLazyGetUserQuery,
+  useAddUserMutation,
+} = authApi;
