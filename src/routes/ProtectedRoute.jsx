@@ -8,6 +8,7 @@ import MainLayout from '../layout/MainLayout'
 import Login from '../pages/Login'
 import ManageBlogs from '../pages/ManageBlogs'
 import RequiredAuth from './RequiredAuth'
+import Register from '../pages/Register'
 
 const ProtectedRoute = () => {
 
@@ -20,6 +21,7 @@ const ProtectedRoute = () => {
                 { path: "blog", element: <Blog /> },
                 { path: "contact", element: <Home /> },
                 { path: "login", element: <Login /> },
+                { path: "register-user", element: <Register /> },
 
                 // Authetication required
                 {

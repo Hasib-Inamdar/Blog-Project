@@ -4,20 +4,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from "../features/auth/authSlice";
 import { v4 as uuid } from "uuid";
 import { selectIsAuth, selectUser } from "../features/auth/authSelectors";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-
-    const dispatch = useDispatch();
-
     const [findUser, { isLoading }] = useLazyGetUserByCredentialsQuery();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleNavigateToRegisterPage = () => {
+        navigate("/register-user")
+    }
+
+
 
     const handleLogin = async (e) => {
         e.preventDefault();
         setError("");
-
         try {
             const userCredentials = {
                 email,
@@ -30,7 +35,6 @@ const Login = () => {
                 setError("Email or password invalid");
                 return;
             }
-
             const authToken = uuid()
             dispatch(
                 loginSuccess({
@@ -42,6 +46,8 @@ const Login = () => {
             localStorage.setItem("user", JSON.stringify(user))
             localStorage.setItem("token", authToken)
             localStorage.setItem("isAuth", true)
+            navigate("/")
+
 
         } catch (err) {
             setError("Something went wrong");
@@ -49,24 +55,24 @@ const Login = () => {
         }
     };
 
-    useEffect(() => {
-        const user = localStorage.getItem("user")
-        const token = localStorage.getItem("token")
-        const isAuth = localStorage.getItem("isAuth")
-        console.log(`user: ${!!user}, token: ${!!token}, isAuth:${!!isAuth}`);
-        if (!!user && !!token && !!isAuth) {
-            console.log("data from the local storage can be used");
-            dispatch(
-                loginSuccess({
-                    user: JSON.parse(user),
-                    token,
-                    isAuthenticated: true
-                })
-            );
-            return
-        }
-        console.log("Need to authenticate");
-    }, [])
+    // useEffect(() => {
+    //     const user = localStorage.getItem("user")
+    //     const token = localStorage.getItem("token")
+    //     const isAuth = localStorage.getItem("isAuth")
+    //     console.log(`user: ${!!user}, token: ${!!token}, isAuth:${!!isAuth}`);
+    //     if (!!user && !!token && !!isAuth) {
+    //         console.log("data from the local storage can be used");
+    //         dispatch(
+    //             loginSuccess({
+    //                 user: JSON.parse(user),
+    //                 token,
+    //                 isAuthenticated: true
+    //             })
+    //         );
+    //         return
+    //     }
+    //     console.log("Need to authenticate");
+    // }, [])
 
     return (
         <div>
@@ -100,6 +106,14 @@ const Login = () => {
             </form>
 
             {error && <p className="text-red-500 mt-2">{error}</p>}
+
+            <div>
+                <p>New User?</p>
+                {/* TODO :- Need to add the click event function */}
+                <button className="bg-green-300 px-7 py-2 rounded-md" onClick={
+                    handleNavigateToRegisterPage
+                }>Create new account!</button>
+            </div>
         </div>
     );
 };
