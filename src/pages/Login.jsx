@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useLazyGetUserByEmailQuery } from "../features/auth/authApi";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useLazyGetUserByCredentialsQuery } from "../features/auth/authApi";
+import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from "../features/auth/authSlice";
 import { v4 as uuid } from "uuid";
 import { selectIsAuth, selectUser } from "../features/auth/authSelectors";
@@ -12,7 +12,7 @@ const Login = () => {
 
     const dispatch = useDispatch();
 
-    const [findUser, { isLoading }] = useLazyGetUserByEmailQuery();
+    const [findUser, { isLoading }] = useLazyGetUserByCredentialsQuery();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -23,28 +23,50 @@ const Login = () => {
                 email,
                 password
             }
-            const users = await findUser(userCredentials).unwrap();
-            console.log(users);
+            const user = await findUser(userCredentials).unwrap();
+            console.log(user);
 
-            if (!users) {
-                setError("User not found");
+            if (!user) {
+                setError("Email or password invalid");
                 return;
             }
 
+            const authToken = uuid()
             dispatch(
                 loginSuccess({
-                    users,
-                    token: uuid(),
+                    user,
+                    token: authToken,
+                    isAuthenticated: true
                 })
             );
-
-            const isAuth = selectIsAuth()
-            console.log(isAuth);
+            localStorage.setItem("user", JSON.stringify(user))
+            localStorage.setItem("token", authToken)
+            localStorage.setItem("isAuth", true)
 
         } catch (err) {
             setError("Something went wrong");
+            console.log(err);
         }
     };
+
+    useEffect(() => {
+        const user = localStorage.getItem("user")
+        const token = localStorage.getItem("token")
+        const isAuth = localStorage.getItem("isAuth")
+        console.log(`user: ${!!user}, token: ${!!token}, isAuth:${!!isAuth}`);
+        if (!!user && !!token && !!isAuth) {
+            console.log("data from the local storage can be used");
+            dispatch(
+                loginSuccess({
+                    user: JSON.parse(user),
+                    token,
+                    isAuthenticated: true
+                })
+            );
+            return
+        }
+        console.log("Need to authenticate");
+    }, [])
 
     return (
         <div>

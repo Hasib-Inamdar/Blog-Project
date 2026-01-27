@@ -47,6 +47,7 @@ const Navbar = () => {
 
                 {isAuth && <div> <NavLink to="/manage-blog" className={linkClass}><p>Manage Blog</p></NavLink></div>}
                 {isAuth && <div> <NavLink to="/profile" className={linkClass}><p>Profile</p></NavLink></div>}
+                {isAuth && <div> <button className='bg-red-500 rounded-sm px-2 py-1 text-white'>Logout</button></div>}
             </div>
         </div>
     )
