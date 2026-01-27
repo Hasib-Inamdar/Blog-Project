@@ -1,3 +1,5 @@
+import { authSlice } from "./authSlice";
+
 export const selectIsAuth = (state) => state.auth.isAuthenticated;
 
 export const selectUser = (state) => state.auth.user;
