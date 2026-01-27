@@ -1,5 +1,6 @@
 import React from 'react'
 import { useGetAllBlogsQuery, useLazyGetAllBlogsQuery } from '../features/blogs/blogApi'
+import BlogCard from '../components/BlogCard';
 
 const Blog = () => {
 
@@ -8,12 +9,10 @@ const Blog = () => {
     console.log(allBlogs);
 
     return (
-        <div>
+        <div className='blogs-cnt'>
             {
                 allBlogs?.map((blog) => (
-                    <div key={blog.id}>
-                        <h2>{blog.title}</h2>
-                    </div>
+                    <BlogCard key={blog.id} blog={blog}></BlogCard>
                 ))
             }
         </div>

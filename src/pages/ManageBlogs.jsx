@@ -1,23 +1,92 @@
-import React, { useEffect } from 'react'
-import { useLazyGetCurrentUserBlogsQuery } from '../features/blogs/blogApi'
+import React, { useEffect, useState } from "react";
+import { useLazyGetCurrentUserBlogsQuery } from "../features/blogs/blogApi";
+import BlogCard from "../components/BlogCard";
 
 const ManageBlogs = () => {
+    const [userBlogs, setUserBlogs] = useState([]);
+    const [isAddingBlog, setIsAddingBlog] = useState(false);
 
-    const [getUserBlogs, { isLoading: isLoadingUserBlog, isError: isErrorLoadingUserBlog }] = useLazyGetCurrentUserBlogsQuery()
+    const [
+        getUserBlogs,
+        { isLoading: isLoadingUserBlog, isError: isErrorLoadingUserBlog },
+    ] = useLazyGetCurrentUserBlogsQuery();
 
-    const user = JSON.parse(localStorage.getItem("user"))
+    const user = JSON.parse(localStorage.getItem("user"));
 
     useEffect(() => {
-        const getUserBlogASYNC = async () => {
-            const userBlogs = await getUserBlogs(user.id)
-            console.log(userBlogs.data);
+        if (!user?.id) return;
 
-        }
-        getUserBlogASYNC()
-    }, [])
+        const fetchUserBlogs = async () => {
+            try {
+                const blogs = await getUserBlogs(user.id).unwrap();
+                setUserBlogs(blogs);
+            } catch (error) {
+                console.error("Failed to fetch user blogs", error);
+            }
+        };
+
+        fetchUserBlogs();
+    }, [getUserBlogs, user?.id]);
+
+    if (isLoadingUserBlog) {
+        return <p>Loading your blogs...</p>;
+    }
+
+    if (isErrorLoadingUserBlog) {
+        return <p className="text-red-500">Failed to load blogs</p>;
+    }
+
     return (
-        <div>ManageBlogs</div>
-    )
-}
+        <div>
+            <div className="flex justify-between items-center px-3">
+                <h2 className="text-xl font-semibold mb-4">My Blogs</h2>
+                <button
+                    className="add-blog-btn"
+                    onClick={() => setIsAddingBlog(true)}
+                >
+                    Add Blog
+                </button>
+            </div>
 
-export default ManageBlogs
+            {userBlogs.length === 0 ? (
+                <p>No blogs found</p>
+            ) : (
+                <div className="blogs-cnt">
+                    {userBlogs.map((blog) => (
+                        <BlogCard key={blog.id} blog={blog} />
+                    ))}
+                </div>
+            )}
+
+            {isAddingBlog && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+                    {/* Popup box */}
+                    <div className="bg-white w-[90%] max-w-md rounded-lg shadow-lg p-6 relative">
+                        <h3 className="text-lg font-semibold mb-4">Add New Blog</h3>
+
+                        <p className="text-sm text-gray-600 mb-6">
+                            Popup Form to add blog
+                        </p>
+
+                        <div className="flex justify-end gap-3">
+                            <button
+                                onClick={() => setIsAddingBlog(false)}
+                                className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300"
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                className="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600"
+                            >
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default ManageBlogs;
