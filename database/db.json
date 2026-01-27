@@ -31,6 +31,22 @@
       "password": "123456",
       "profileImage": "https://images.pexels.com/photos/24244744/pexels-photo-24244744.jpeg",
       "bio": "kjsdck kjsdc jdkcjjcakscj"
+    },
+    {
+      "id": "2IrzreKt",
+      "name": "Afifa",
+      "email": "afifa@gmail.com",
+      "password": "123456",
+      "profileImage": "https://images.pexels.com/photos/24244744/pexels-photo-24244744.jpeg",
+      "bio": "afifa lorem ipsum dolor sit"
+    },
+    {
+      "id": "K4HhSFQ-",
+      "name": "Afifa",
+      "email": "afifa@gmail.com",
+      "password": "123456",
+      "profileImage": "https://images.pexels.com/photos/24244744/pexels-photo-24244744.jpeg",
+      "bio": "afifa lorem ipsum dolor sit"
     }
   ],
   "blogs": [
@@ -41,6 +57,7 @@
       "body": "React is a JavaScript library for building user interfaces...",
       "authorId": "1",
       "authorName": "Hasib Inamdar",
+      "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
       "date": "2026-01-20",
       "image": "https://picsum.photos/800/400?random=1",
       "reactions": {
@@ -55,6 +72,7 @@
       "body": "Clean UI is not about adding more elements but about removing unnecessary clutter. Focus on spacing, typography, color consistency, and accessibility to build interfaces users love.",
       "authorId": "1",
       "authorName": "Hasib Inamdar",
+      "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
       "date": "2026-01-22",
       "image": "https://picsum.photos/800/400?random=2",
       "reactions": {
@@ -69,6 +87,7 @@
       "body": "Consistency in layout, color usage, and components helps users feel comfortable and confident while navigating your website. It reduces cognitive load and improves user trust.",
       "authorId": "2",
       "authorName": "Hamed Inamdar",
+      "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
       "date": "2026-01-23",
       "image": "https://picsum.photos/800/400?random=3",
       "reactions": {
@@ -83,6 +102,7 @@
       "body": "Learning React can feel overwhelming at first, but once you understand components, props, and state, things start making sense. Practice and small projects are key.",
       "authorId": "j17DJyvH",
       "authorName": "Lorem",
+      "aurthorProfileImage": "https://images.pexels.com/photos/24244744/pexels-photo-24244744.jpeg",
       "date": "2026-01-24",
       "image": "https://picsum.photos/800/400?random=4",
       "reactions": {
@@ -97,6 +117,7 @@
       "body": "Imposter syndrome is common among developers. The best way to overcome it is by building projects, learning continuously, and celebrating small wins.",
       "authorId": "4SI1E7a6",
       "authorName": "Viki",
+      "aurthorProfileImage": "https://images.pexels.com/photos/24244744/pexels-photo-24244744.jpeg",
       "date": "2026-01-25",
       "image": "https://picsum.photos/800/400?random=5",
       "reactions": {

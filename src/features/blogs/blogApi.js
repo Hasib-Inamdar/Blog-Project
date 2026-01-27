@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const blogApi = createApi({
+export const blogApi = createApi({
   reducerPath: "blogs",
 
   baseQuery: fetchBaseQuery({
@@ -26,8 +26,15 @@ const blogApi = createApi({
         method: "POST",
         body: blog,
       }),
+      invalidatesTags: ["blogs"],
     }),
   }),
 });
 
-export const { useGetAllBlogsQuery, useLazyGetAllBlogsQuery } = blogApi;
+export const {
+  useGetAllBlogsQuery,
+  useLazyGetAllBlogsQuery,
+  useGetCurrentUserBlogsQuery,
+  useLazyGetCurrentUserBlogsQuery,
+  useAddBlogMutation,
+} = blogApi;

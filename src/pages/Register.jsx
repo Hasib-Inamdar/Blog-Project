@@ -48,13 +48,11 @@ const Register = () => {
                     localStorage.setItem("isAuth", true)
                 }
                 reset()
-
                 navigate("/")
             }
         } catch (error) {
             toast.error(error.messag)
         }
-
     };
 
     return (
