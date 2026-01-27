@@ -17,9 +17,17 @@ export const authApi = createApi({
       providesTags: ["users"],
     }),
 
-    //Get specific user
+    //Get specific user by id
     getUser: builder.query({
       query: (userID) => `/users/${userID}`,
+      providesTags: ["users"],
+    }),
+
+    //Get specific user by email
+    getUserByEmail: builder.query({
+      query: (userCredentials) =>
+        `/users?email=${userCredentials.email}&password=${userCredentials.password}`,
+      transformResponse: (response) => response[0] || null,
       providesTags: ["users"],
     }),
 
@@ -35,9 +43,11 @@ export const authApi = createApi({
 });
 
 export const {
-  useGetAllUsersQuery,
   useLazyGetAllUsersQuery,
-  useGetUserQuery,
+  useLazyGetUserByEmailQuery,
   useLazyGetUserQuery,
+  useGetAllUsersQuery,
+  useGetUserByEmailQuery,
+  useGetUserQuery,
   useAddUserMutation,
 } = authApi;
