@@ -19,18 +19,18 @@
     {
       "id": "j17DJyvH",
       "name": "Lorem",
-      "email": "hasib@gmail.com",
-      "password": "idvnkisjndckajns",
+      "email": "lorem@gmail.com",
+      "password": "123456",
       "profileImage": "https://images.pexels.com/photos/24244744/pexels-photo-24244744.jpeg",
       "bio": "kjsdck kjsdc jdkcjjcaksc j"
     },
     {
       "id": "4SI1E7a6",
-      "name": "Lorem",
-      "email": "hasib@gmail.com",
-      "password": "idvnkisjndckajns",
+      "name": "Viki",
+      "email": "viki@gmail.com",
+      "password": "123456",
       "profileImage": "https://images.pexels.com/photos/24244744/pexels-photo-24244744.jpeg",
-      "bio": "kjsdck kjsdc jdkcjjcaksc j"
+      "bio": "kjsdck kjsdc jdkcjjcakscj"
     }
   ],
   "blogs": [
@@ -39,12 +39,68 @@
       "title": "Getting Started with React",
       "description": "A beginner-friendly introduction to React.",
       "body": "React is a JavaScript library for building user interfaces...",
-      "authorId": 1,
+      "authorId": "1",
       "authorName": "Hasib Inamdar",
       "date": "2026-01-20",
       "image": "https://picsum.photos/800/400?random=1",
       "reactions": {
         "likes": 5,
+        "comments": []
+      }
+    },
+    {
+      "id": "2",
+      "title": "Clean UI Principles Every Frontend Dev Should Know",
+      "description": "Key UI principles that improve usability and aesthetics.",
+      "body": "Clean UI is not about adding more elements but about removing unnecessary clutter. Focus on spacing, typography, color consistency, and accessibility to build interfaces users love.",
+      "authorId": "1",
+      "authorName": "Hasib Inamdar",
+      "date": "2026-01-22",
+      "image": "https://picsum.photos/800/400?random=2",
+      "reactions": {
+        "likes": 12,
+        "comments": []
+      }
+    },
+    {
+      "id": "3",
+      "title": "Why Consistency Matters in Web Design",
+      "description": "Understanding the importance of consistency across web pages.",
+      "body": "Consistency in layout, color usage, and components helps users feel comfortable and confident while navigating your website. It reduces cognitive load and improves user trust.",
+      "authorId": "2",
+      "authorName": "Hamed Inamdar",
+      "date": "2026-01-23",
+      "image": "https://picsum.photos/800/400?random=3",
+      "reactions": {
+        "likes": 8,
+        "comments": []
+      }
+    },
+    {
+      "id": "4",
+      "title": "My Journey Learning React",
+      "description": "Lessons learned while getting started with React.",
+      "body": "Learning React can feel overwhelming at first, but once you understand components, props, and state, things start making sense. Practice and small projects are key.",
+      "authorId": "j17DJyvH",
+      "authorName": "Lorem",
+      "date": "2026-01-24",
+      "image": "https://picsum.photos/800/400?random=4",
+      "reactions": {
+        "likes": 3,
+        "comments": []
+      }
+    },
+    {
+      "id": "5",
+      "title": "Building Confidence as a New Developer",
+      "description": "Tips for overcoming self-doubt in tech.",
+      "body": "Imposter syndrome is common among developers. The best way to overcome it is by building projects, learning continuously, and celebrating small wins.",
+      "authorId": "4SI1E7a6",
+      "authorName": "Viki",
+      "date": "2026-01-25",
+      "image": "https://picsum.photos/800/400?random=5",
+      "reactions": {
+        "likes": 6,
         "comments": []
       }
     }
