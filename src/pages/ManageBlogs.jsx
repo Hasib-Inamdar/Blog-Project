@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useLazyGetCurrentUserBlogsQuery } from "../features/blogs/blogApi";
 import BlogCard from "../components/BlogCard";
+import AddBlog from "../components/AddBlog";
+import { setAddMode, setDeleteMode, setEditMode, resetMode } from "../features/blogs/blogSlice";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const ManageBlogs = () => {
+export const ManageBlogs = () => {
     const [userBlogs, setUserBlogs] = useState([]);
-    const [isAddingBlog, setIsAddingBlog] = useState(false);
-
+    // const [isAddingBlog, setIsAddingBlog] = useState(false);
+    const { mode } = useSelector((state) => state.blogManipulation);
+    const dispatch = useDispatch();
     const [
         getUserBlogs,
         { isLoading: isLoadingUserBlog, isError: isErrorLoadingUserBlog },
@@ -42,7 +47,7 @@ const ManageBlogs = () => {
                 <h2 className="text-xl font-semibold mb-4">My Blogs</h2>
                 <button
                     className="add-blog-btn"
-                    onClick={() => setIsAddingBlog(true)}
+                    onClick={() => dispatch(setAddMode())}
                 >
                     Add Blog
                 </button>
@@ -58,19 +63,17 @@ const ManageBlogs = () => {
                 </div>
             )}
 
-            {isAddingBlog && (
+            {mode === "add" && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
                     {/* Popup box */}
                     <div className="bg-white w-[90%] max-w-md rounded-lg shadow-lg p-6 relative">
                         <h3 className="text-lg font-semibold mb-4">Add New Blog</h3>
+                        <AddBlog>   </AddBlog>
 
-                        <p className="text-sm text-gray-600 mb-6">
-                            Popup Form to add blog
-                        </p>
-
+                        {/* TODO - Remove this buttons and move them to Add Blog Form
                         <div className="flex justify-end gap-3">
                             <button
-                                onClick={() => setIsAddingBlog(false)}
+                                onClick={() => resetMode()}
                                 className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300"
                             >
                                 Cancel
@@ -81,7 +84,7 @@ const ManageBlogs = () => {
                             >
                                 Save
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             )}
