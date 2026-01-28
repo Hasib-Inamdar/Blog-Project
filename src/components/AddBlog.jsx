@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
 import toast from "react-hot-toast";
@@ -25,7 +25,6 @@ const AddBlog = () => {
         try {
             let user = JSON.parse(localStorage.getItem("user"))
             const date = new Date().toISOString().split("T")[0];
-
             const fullBlogData = {
                 id: nanoid(8),
                 date,
@@ -38,26 +37,31 @@ const AddBlog = () => {
                 },
                 ...data,
             }
-
             console.log(fullBlogData);
             await addBlog(fullBlogData);
-
             reset()
-
-            isAddingBlog && toast.loading("Adding blog...")
-            isAddedBlogSuccess && toast.success("Blog added successfully.")
+            // isAddingBlog && toast.loading("Adding blog...")
+            dispatch(resetMode());
 
         } catch (error) {
             toast.error("Error Adding Blog")
             console.error(error.message())
         }
     }
-
     const handleCancle = () => {
         reset()
         dispatch(resetMode());
     }
 
+    useEffect(() => {
+        if (isAddedBlogSuccess) {
+            toast.success("Blog added successfully.");
+            dispatch(resetMode());
+        }
+        if (isErrorAddingBlog) {
+            toast.error(errorAddingBlog?.data?.message || "Failed to add blog");
+        }
+    }, [isAddedBlogSuccess, isErrorAddingBlog, dispatch])
 
     return (
         <div>
@@ -102,13 +106,13 @@ const AddBlog = () => {
                     <input
                         className="border p-2 w-full"
                         placeholder="Blog Image URL"
-                        {...register("blogImage", {
+                        {...register("image", {
                             required: "Blog image URL is required",
                         })}
                     />
-                    {errors.blogImage && (
+                    {errors.image && (
                         <p className="text-red-500 text-sm">
-                            {errors.blogImage.message}
+                            {errors.image.message}
                         </p>
                     )}
                 </div>
@@ -137,7 +141,7 @@ const AddBlog = () => {
                     Add Blog
                 </button>
                 <button
-                    type="submit"
+                    type='button'
                     className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
                     onClick={handleCancle}
                 >

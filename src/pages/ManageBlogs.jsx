@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLazyGetCurrentUserBlogsQuery } from "../features/blogs/blogApi";
+import { useLazyGetCurrentUserBlogsQuery, useGetCurrentUserBlogsQuery } from "../features/blogs/blogApi";
 import BlogCard from "../components/BlogCard";
 import AddBlog from "../components/AddBlog";
 import { setAddMode, setDeleteMode, setEditMode, resetMode } from "../features/blogs/blogSlice";
@@ -7,31 +7,41 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
 export const ManageBlogs = () => {
-    const [userBlogs, setUserBlogs] = useState([]);
+    // const [userBlogs, setUserBlogs] = useState([]);
     // const [isAddingBlog, setIsAddingBlog] = useState(false);
     const { mode } = useSelector((state) => state.blogManipulation);
     const dispatch = useDispatch();
-    const [
-        getUserBlogs,
-        { isLoading: isLoadingUserBlog, isError: isErrorLoadingUserBlog },
-    ] = useLazyGetCurrentUserBlogsQuery();
 
     const user = JSON.parse(localStorage.getItem("user"));
 
-    useEffect(() => {
-        if (!user?.id) return;
+    const {
+        data: userBlogs = [],
+        isLoading: isLoadingUserBlog,
+        isError: isErrorLoadingUserBlog,
+    } = useGetCurrentUserBlogsQuery(user?.id, {
+        skip: !user?.id,
+    });
 
-        const fetchUserBlogs = async () => {
-            try {
-                const blogs = await getUserBlogs(user.id).unwrap();
-                setUserBlogs(blogs);
-            } catch (error) {
-                console.error("Failed to fetch user blogs", error);
-            }
-        };
 
-        fetchUserBlogs();
-    }, [getUserBlogs, user?.id]);
+    // const [
+    //     getUserBlogs,
+    //     { isLoading: isLoadingUserBlog, isError: isErrorLoadingUserBlog },
+    // ] = useLazyGetCurrentUserBlogsQuery();
+    // const user = JSON.parse(localStorage.getItem("user"));
+    // useEffect(() => {
+    //     if (!user?.id) return;
+
+    //     const fetchUserBlogs = async () => {
+    //         try {
+    //             const blogs = await getUserBlogs(user.id).unwrap();
+    //             setUserBlogs(blogs);
+    //         } catch (error) {
+    //             console.error("Failed to fetch user blogs", error);
+    //         }
+    //     };
+
+    //     fetchUserBlogs();
+    // }, [getUserBlogs, user?.id]);
 
     if (isLoadingUserBlog) {
         return <p>Loading your blogs...</p>;
