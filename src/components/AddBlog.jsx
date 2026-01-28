@@ -36,7 +36,7 @@ const AddBlog = () => {
                 authorId: user.id,
                 authorName: user.name,
                 aurthorProfileImage: user.profileImage,
-                reaction: {
+                reactions: {
                     "likes": 0,
                     "comments": []
                 },

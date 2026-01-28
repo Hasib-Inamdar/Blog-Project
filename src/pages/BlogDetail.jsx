@@ -33,34 +33,31 @@ const BlogDetail = () => {
 
 
     return (
-        <div>
-            <div className='blog-cnt'>
+        <div className='blog-cnt'>
 
-                <div className="author-dtls">
-                    <div className="author-img">
-                        <img src={blog.aurthorProfileImage} alt="DP" />
-                    </div>
-                    <p className='author-name'>{blog.authorName}</p>
-                    <p className='blog-date'>{blog.date}</p>
+            <div className="author-dtls">
+                <div className="author-img">
+                    <img src={blog.aurthorProfileImage} alt="DP" />
                 </div>
+                <p className='author-name'>{blog.authorName}</p>
+                <p className='blog-date'>{blog.date}</p>
+            </div>
 
-                <div className="headings-sec">
-                    <h1 className='blog-title'>{blog.title}</h1>
-                    <h1 className='blog-description'>{blog.description}</h1>
-                </div>
+            <div className="headings-sec">
+                <h1 className='blog-title'>{blog.title}</h1>
+                <p className='blog-description'>{blog.description}</p>
+            </div>
 
-                <div className="blog-img-sec">
-                    <img src={blog.image} alt="Blog Image" />
-                </div>
+            <div className="blog-img-sec">
+                <img src={blog.image} alt="Blog Image" />
+            </div>
 
-                <div className="blog-body-sec">
-                    {blog.body}
-                </div>
+            <div className="blog-body-sec">
+                {blog.body}
+            </div>
 
-                <div className="blog-likes-sec">
-                    <p className='blog-likes'>{blog.reactions.likes}</p>
-                </div>
-
+            <div className="blog-likes-sec">
+                <p className='blog-likes'>❤️ {blog.reactions.likes}</p>
             </div>
 
             {
@@ -68,6 +65,7 @@ const BlogDetail = () => {
                 <p>Edit and delete options</p>
             }
         </div>
+
     )
 }
 

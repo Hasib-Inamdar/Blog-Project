@@ -54,7 +54,7 @@
       "id": "1",
       "title": "Getting Started with React",
       "description": "A beginner-friendly introduction to React.",
-      "body": "React is a JavaScript library for building user interfaces...",
+      "body": "Once the basics are clear, developers can move on to advanced topics such as hooks,state management, and routing",
       "authorId": "1",
       "authorName": "Hasib Inamdar",
       "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
@@ -136,7 +136,7 @@
       "authorId": "1",
       "authorName": "Hasib Inamdar",
       "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
-      "reaction": {
+      "reactions": {
         "likes": 0,
         "comments": []
       },
@@ -152,7 +152,7 @@
       "authorId": "1",
       "authorName": "Hasib Inamdar",
       "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
-      "reaction": {
+      "reactions": {
         "likes": 0,
         "comments": []
       },

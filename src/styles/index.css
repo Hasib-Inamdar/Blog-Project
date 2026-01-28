@@ -49,43 +49,68 @@
     @apply grid-cols-1 m-2 bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col;
   }
 
-  .blog-image {
+  .blog-card .blog-image {
     @apply w-full h-60 overflow-hidden;
   }
 
-  .blog-image img {
+  .blog-card .blog-image img {
     @apply w-full h-full object-cover;
   }
 
-  .blog-content {
+  .blog-card .blog-content {
     @apply p-5 flex flex-col gap-4;
   }
 
-  .blog-author {
+  .blog-card .blog-author {
     @apply flex items-center gap-3;
   }
 
-  .author-avatar {
+  .blog-card .author-avatar {
     @apply w-10 h-10 rounded-full object-cover;
   }
 
-  .author-meta {
+  .blog-card .author-meta {
     @apply flex flex-col;
   }
 
-  .author-name {
+  .blog-card .author-name {
     @apply text-sm font-semibold text-gray-800;
   }
 
-  .blog-date {
+  .blog-card .blog-date {
     @apply text-xs text-gray-500;
   }
 
-  .blog-title {
+  .blog-card .blog-title {
     @apply text-xl font-serif font-semibold text-gray-900 leading-snug hover:text-gray-700 transition-colors;
   }
 
-  .blog-desc {
+  .blog-card .blog-desc {
     @apply text-gray-600 text-sm leading-relaxed;
+  }
+}
+
+/* Blog Detail Page */
+@layer components {
+  .blog-cnt {
+    @apply w-[65%] m-auto mt-10 p-9 border shadow-lg;
+  }
+  .blog-cnt .author-dtls {
+    @apply flex gap-2 justify-start items-center;
+  }
+  .blog-cnt .author-img {
+    @apply w-14 h-14 rounded-full overflow-hidden;
+  }
+  .blog-cnt .blog-date {
+    @apply text-xs text-gray-500;
+  }
+  .blog-title {
+    @apply text-4xl font-semibold;
+  }
+  .blog-description {
+    @apply my-2;
+  }
+  .blog-img-sec img {
+    @apply w-full;
   }
 }
