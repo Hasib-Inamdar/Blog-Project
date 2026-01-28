@@ -17,7 +17,12 @@ const AddBlog = () => {
         handleSubmit,
         reset,
         formState: { errors },
-    } = useForm();
+
+    } = useForm({
+        defaultValues: {
+            isPrivate: false,
+        }
+    });
 
     // TODO - Need too take the current date, format it and add it to the blog
     const onSubmit = async (data) => {
@@ -134,6 +139,19 @@ const AddBlog = () => {
                         <p className="text-red-500 text-sm">{errors.body.message}</p>
                     )}
                 </div>
+                {/* Private Flag */}
+                <div className="flex items-center gap-3 justify-start p-2  rounded">
+                    <input
+                        type="checkbox"
+                        id="isPrivate"
+                        className="accent-blue-600 h-4 w-4"
+                        {...register("isPrivate")}
+                    />
+                    <label htmlFor="isPrivate" className="text-sm">
+                        Make this blog private
+                    </label>
+                </div>
+
 
                 <button
                     type="submit"

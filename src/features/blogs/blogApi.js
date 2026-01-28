@@ -11,7 +11,7 @@ export const blogApi = createApi({
 
   endpoints: (builder) => ({
     getAllBlogs: builder.query({
-      query: () => "/blogs",
+      query: () => "/blogs?isPrivate=false",
       providesTags: ["blogs"],
     }),
 

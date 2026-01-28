@@ -60,6 +60,7 @@
       "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
       "date": "2026-01-20",
       "image": "https://picsum.photos/800/400?random=1",
+      "isPrivate": false,
       "reactions": {
         "likes": 5,
         "comments": []
@@ -75,6 +76,7 @@
       "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
       "date": "2026-01-22",
       "image": "https://picsum.photos/800/400?random=2",
+      "isPrivate": false,
       "reactions": {
         "likes": 12,
         "comments": []
@@ -90,6 +92,7 @@
       "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
       "date": "2026-01-23",
       "image": "https://picsum.photos/800/400?random=3",
+      "isPrivate": false,
       "reactions": {
         "likes": 8,
         "comments": []
@@ -105,6 +108,7 @@
       "aurthorProfileImage": "https://images.pexels.com/photos/24244744/pexels-photo-24244744.jpeg",
       "date": "2026-01-24",
       "image": "https://picsum.photos/800/400?random=4",
+      "isPrivate": true,
       "reactions": {
         "likes": 3,
         "comments": []
@@ -120,6 +124,7 @@
       "aurthorProfileImage": "https://images.pexels.com/photos/24244744/pexels-photo-24244744.jpeg",
       "date": "2026-01-25",
       "image": "https://picsum.photos/800/400?random=5",
+      "isPrivate": false,
       "reactions": {
         "likes": 6,
         "comments": []
@@ -135,13 +140,14 @@
         "likes": 0,
         "comments": []
       },
-      "title": "Lorem",
-      "description": "ksjbdksjdcksjb",
+      "title": "My isPrivate Blog",
+      "description": "Dont show in the blog page",
       "image": "https://images.pexels.com/photos/28504954/pexels-photo-28504954.jpeg",
+      "isPrivate": true,
       "body": "sjnisdb jhjsbdcsndkm sidjis  dcnsood "
     },
     {
-      "id": "RNrWFW1p",
+      "id": "es_Zzm4q",
       "date": "2026-01-28",
       "authorId": "1",
       "authorName": "Hasib Inamdar",
@@ -150,70 +156,11 @@
         "likes": 0,
         "comments": []
       },
-      "title": "ABCSaj",
-      "description": "nfjdsnvaksdc",
-      "image": "https://images.pexels.com/photos/30479286/pexels-photo-30479286.jpeg",
-      "body": "CKSJNDKJNKCSJNdjsncjskdjckajndjka"
-    },
-    {
-      "id": "2QbVazYG",
-      "date": "2026-01-28",
-      "authorId": "1",
-      "authorName": "Hasib Inamdar",
-      "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
-      "reaction": {
-        "likes": 0,
-        "comments": []
-      },
-      "title": "KBNSJFNSDJFN",
-      "description": "kdjvkddfjvskdjvksdsdj",
-      "image": "https://images.pexels.com/photos/8143737/pexels-photo-8143737.jpeg",
-      "body": "vkjdfivjasdjns sdjksdnks "
-    },
-    {
-      "id": "jONhXX0r",
-      "date": "2026-01-28",
-      "authorId": "1",
-      "authorName": "Hasib Inamdar",
-      "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
-      "reaction": {
-        "likes": 0,
-        "comments": []
-      },
-      "title": "djvsdvfidbfvihdihva",
-      "description": "ojdvnnjvfaovnjvkd kvnjvi n ",
-      "image": "https://images.pexels.com/photos/5717809/pexels-photo-5717809.jpeg",
-      "body": "vshdbbsd idi sd sdiisd i"
-    },
-    {
-      "id": "7tSeuuKT",
-      "date": "2026-01-28",
-      "authorId": "1",
-      "authorName": "Hasib Inamdar",
-      "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
-      "reaction": {
-        "likes": 0,
-        "comments": []
-      },
-      "title": "Dummy Blog",
-      "description": "kskjdnv kjdcksd kjsdsdc ",
-      "image": "https://images.pexels.com/photos/17514177/pexels-photo-17514177.jpeg",
-      "body": "Lorem the blody of blog"
-    },
-    {
-      "id": "sLrkROoI",
-      "date": "2026-01-28",
-      "authorId": "1",
-      "authorName": "Hasib Inamdar",
-      "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
-      "reaction": {
-        "likes": 0,
-        "comments": []
-      },
-      "title": "Loremy Bloggggyy",
-      "description": "sjdiasdjvjsvd",
-      "image": "https://images.pexels.com/photos/17467937/pexels-photo-17467937.jpeg",
-      "body": "mnm kfvn kdf vv ns v   j"
+      "isPrivate": true,
+      "title": "Another private blog",
+      "description": "lorem ipsum",
+      "image": "https://images.pexels.com/photos/6016513/pexels-photo-6016513.jpeg",
+      "body": "private blog body"
     }
   ]
 }
