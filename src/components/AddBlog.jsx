@@ -11,20 +11,24 @@ import { useAddBlogMutation } from '../features/blogs/blogApi';
 const AddBlog = () => {
 
     const dispatch = useDispatch()
-    const [addBlog, { isSuccess: isAddedBlogSuccess, isLoading: isAddingBlog, isError: isErrorAddingBlog, error: errorAddingBlog }] = useAddBlogMutation()
+    const [addBlog,
+        { isSuccess: isAddedBlogSuccess,
+            isLoading: isAddingBlog,
+            isError: isErrorAddingBlog,
+            error: errorAddingBlog
+        }] = useAddBlogMutation()
+
     const {
         register,
         handleSubmit,
         reset,
         formState: { errors },
-
     } = useForm({
         defaultValues: {
             isPrivate: false,
         }
     });
 
-    // TODO - Need too take the current date, format it and add it to the blog
     const onSubmit = async (data) => {
 
         try {

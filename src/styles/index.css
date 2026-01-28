@@ -113,4 +113,19 @@
   .blog-img-sec img {
     @apply w-full;
   }
+  .blog-header {
+    @apply flex justify-between items-center;
+  }
+  .options-sec {
+    @apply flex gap-6 justify-between items-center;
+  }
+  .options-sec .opt-btn {
+    @apply px-3 py-2 w-24;
+  }
+  .options-sec .deleteBtn {
+    @apply bg-red-200 hover:bg-red-300;
+  }
+  .options-sec .editBtn {
+    @apply bg-blue-200 hover:bg-blue-300;
+  }
 }

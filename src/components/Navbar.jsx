@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { loginSuccess, logout } from '../features/auth/authSlice';
 import { selectIsAuth } from '../features/auth/authSelectors';
-
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
 
     // const isAuth = localStorage.getItem("isAuth");
     const isAuth = useSelector(selectIsAuth);
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const linkClass = ({ isActive }) =>
         isActive
@@ -21,11 +22,11 @@ const Navbar = () => {
         if (!cofirmLogout) {
             return
         }
-
         localStorage.removeItem("user");
         localStorage.removeItem("token");
         localStorage.removeItem("isAuth");
         dispatch(logout())
+        navigate("/")
     }
 
 

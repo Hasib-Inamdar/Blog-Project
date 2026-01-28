@@ -51,22 +51,6 @@
   ],
   "blogs": [
     {
-      "id": "1",
-      "title": "Getting Started with React",
-      "description": "A beginner-friendly introduction to React.",
-      "body": "Once the basics are clear, developers can move on to advanced topics such as hooks,state management, and routing",
-      "authorId": "1",
-      "authorName": "Hasib Inamdar",
-      "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
-      "date": "2026-01-20",
-      "image": "https://picsum.photos/800/400?random=1",
-      "isPrivate": false,
-      "reactions": {
-        "likes": 5,
-        "comments": []
-      }
-    },
-    {
       "id": "2",
       "title": "Clean UI Principles Every Frontend Dev Should Know",
       "description": "Key UI principles that improve usability and aesthetics.",

@@ -41,6 +41,10 @@ export const blogApi = createApi({
         method: "PATCH",
         body: data,
       }),
+      invalidatesTags: (result, error, { id }) => [
+        { type: "blogs", id },
+        "blogs",
+      ],
     }),
 
     deleteBlog: builder.mutation({
@@ -48,7 +52,7 @@ export const blogApi = createApi({
         url: `/blogs/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: [{ type: "blogs", id }, "blogs"],
+      invalidatesTags: (result, error, id) => [{ type: "blogs", id }, "blogs"],
     }),
   }),
 });
@@ -60,5 +64,7 @@ export const {
   useLazyGetBlogByIdQuery,
   useGetCurrentUserBlogsQuery,
   useLazyGetCurrentUserBlogsQuery,
+  useDeleteBlogMutation,
+  useEditBlogMutation,
   useAddBlogMutation,
 } = blogApi;

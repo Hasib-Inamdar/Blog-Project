@@ -1,27 +1,46 @@
 import React from 'react'
 import { useParams, useLocation } from 'react-router-dom'
-import { useGetBlogByIdQuery } from '../features/blogs/blogApi'
+import { useGetBlogByIdQuery, useDeleteBlogMutation, useEditBlogMutation } from '../features/blogs/blogApi'
+import { useNavigate } from 'react-router-dom'
 
 const BlogDetail = () => {
+    const navigate = useNavigate()
 
     const { id } = useParams();
     const location = useLocation()
     const isManageView = location.pathname.startsWith("/manage-blogs")
-    const { data: blog, isLoading, isSuccess, isError, error } = useGetBlogByIdQuery(id)
     let isOwner;
+
+    const { data: blog, isLoading, isSuccess, isError, error } = useGetBlogByIdQuery(id)
+    const [deleteBlog, { isSuccess: isBlogDeleted, isLoading: isDeletingBlog }] = useDeleteBlogMutation()
+
+    const handleDelete = async () => {
+        try {
+            const deleteConfirm = window.confirm("Do you want to DELETE the blog?")
+            if (deleteConfirm) {
+                await deleteBlog(id);
+                navigate("/manage-blogs")
+
+                if (isDeletingBlog) {
+                    return <p>Deleting the blog.. Please wait</p>
+                }
+            } else { return }
+        } catch (error) {
+            console.log(error);
+        }
+        if (isBlogDeleted) {
+            console.log(" hiting the navigation ");
+
+            return <p>Blog deleted successfully</p>
+        }
+    }
+
     try {
         const user = JSON.parse(localStorage.getItem("user"))
-        console.log(user);
-
         if (isError) {
             throw new Error(error);
         }
-
         isOwner = user.id == blog.authorId
-
-        console.log(blog);
-        console.log("isOwner: ", isOwner);
-        console.log("isManageView", isManageView);
 
     } catch (error) {
         console.log(error);
@@ -35,13 +54,24 @@ const BlogDetail = () => {
     return (
         <div className='blog-cnt'>
 
-            <div className="author-dtls">
-                <div className="author-img">
-                    <img src={blog.aurthorProfileImage} alt="DP" />
+            <div className='blog-header'>
+
+                <div className="author-dtls">
+                    <div className="author-img">
+                        <img src={blog.aurthorProfileImage} alt="DP" />
+                    </div>
+                    <p className='author-name'>{blog.authorName}</p>
+                    <p className='blog-date'>{blog.date}</p>
                 </div>
-                <p className='author-name'>{blog.authorName}</p>
-                <p className='blog-date'>{blog.date}</p>
+
+                {(isOwner && isManageView) &&
+                    <div className='options-sec'>
+                        <button className='opt-btn editBtn'>Edit</button>
+                        <button className='opt-btn deleteBtn' onClick={handleDelete}>Delete</button>
+                    </div>
+                }
             </div>
+
 
             <div className="headings-sec">
                 <h1 className='blog-title'>{blog.title}</h1>
@@ -60,10 +90,7 @@ const BlogDetail = () => {
                 <p className='blog-likes'>❤️ {blog.reactions.likes}</p>
             </div>
 
-            {
-                (isOwner && isManageView) &&
-                <p>Edit and delete options</p>
-            }
+
         </div>
 
     )
