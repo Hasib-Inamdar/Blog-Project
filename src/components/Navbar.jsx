@@ -44,7 +44,7 @@ const Navbar = () => {
                     </NavLink>
                 </div>
                 <div>
-                    <NavLink to={"/blog"} className={linkClass} end>
+                    <NavLink to={"/blogs"} className={linkClass} end>
                         <p>Blog</p>
                     </NavLink>
                 </div>
@@ -62,7 +62,7 @@ const Navbar = () => {
                     </div>
                 }
 
-                {isAuth && <div> <NavLink to="/manage-blog" className={linkClass}><p>Manage Blog</p></NavLink></div>}
+                {isAuth && <div> <NavLink to="/manage-blogs" className={linkClass}><p>Manage Blog</p></NavLink></div>}
                 {isAuth && <div> <NavLink to="/profile" className={linkClass}><p>Profile</p></NavLink></div>}
                 {isAuth && <div> <button onClick={handleLogout} className='bg-red-500 rounded-sm px-2 py-1 text-white'>Logout</button></div>}
             </div>

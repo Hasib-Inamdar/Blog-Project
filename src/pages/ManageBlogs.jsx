@@ -68,7 +68,7 @@ export const ManageBlogs = () => {
             ) : (
                 <div className="blogs-cnt">
                     {userBlogs.map((blog) => (
-                        <BlogCard key={blog.id} blog={blog} />
+                        <BlogCard key={blog.id} blog={blog} isManageView={true} />
                     ))}
                 </div>
             )}

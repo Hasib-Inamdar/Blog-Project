@@ -1,8 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const BlogCard = ({ blog }) => {
+
+const BlogCard = ({ blog, isManageView = false }) => {
+    const navigate = useNavigate()
+
+    const handleClick = () => {
+        if (isManageView) {
+            navigate(`/manage-blogs/${blog.id}`)
+        } else {
+            navigate(`/blogs/${blog.id}`)
+        }
+    }
+
     return (
-        <article className="blog-card">
+        <article className="blog-card" onClick={handleClick}>
             <div className="blog-image">
                 <img src={blog.image} alt={blog.title} />
             </div>

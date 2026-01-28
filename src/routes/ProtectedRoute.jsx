@@ -9,6 +9,7 @@ import Login from '../pages/Login'
 import ManageBlogs from '../pages/ManageBlogs'
 import RequiredAuth from './RequiredAuth'
 import Register from '../pages/Register'
+import BlogDetail from '../pages/BlogDetail'
 
 const ProtectedRoute = () => {
 
@@ -18,7 +19,8 @@ const ProtectedRoute = () => {
             element: <MainLayout />,
             children: [
                 { index: true, element: <Home /> },
-                { path: "blog", element: <Blog /> },
+                { path: "blogs", element: <Blog /> },
+                { path: "blogs/:id", element: <BlogDetail /> },
                 { path: "contact", element: <Home /> },
                 { path: "login", element: <Login /> },
                 { path: "register-user", element: <Register /> },
@@ -27,7 +29,8 @@ const ProtectedRoute = () => {
                 {
                     element: <RequiredAuth />,
                     children: [
-                        { path: "manage-blog", element: <ManageBlogs /> },
+                        { path: "manage-blogs", element: <ManageBlogs /> },
+                        { path: "manage-blogs/:id", element: <BlogDetail /> },
                         { path: "profile", element: <Profile /> },
                     ],
                 },

@@ -20,6 +20,12 @@ export const blogApi = createApi({
       providesTags: ["blogs"],
     }),
 
+    getBlogById: builder.query({
+      query: (blogId) => `/blogs/${blogId}`,
+      providesTags: (result, error, blogId) => [{ type: "blogs", id: blogId }],
+      // The above tag only refetches when the specific blog is updated
+    }),
+
     addBlog: builder.mutation({
       query: (blog) => ({
         url: "/blogs",
@@ -32,8 +38,10 @@ export const blogApi = createApi({
 });
 
 export const {
+  useGetBlogByIdQuery,
   useGetAllBlogsQuery,
   useLazyGetAllBlogsQuery,
+  useLazyGetBlogByIdQuery,
   useGetCurrentUserBlogsQuery,
   useLazyGetCurrentUserBlogsQuery,
   useAddBlogMutation,
