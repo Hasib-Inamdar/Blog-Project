@@ -5,18 +5,24 @@ import toast from "react-hot-toast";
 import { selectUser } from '../features/auth/authSelectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAddMode, setDeleteMode, setEditMode, resetMode } from "../features/blogs/blogSlice";
-import { useAddBlogMutation } from '../features/blogs/blogApi';
+import { useAddBlogMutation, useEditBlogMutation } from '../features/blogs/blogApi';
 
 
-const AddBlog = () => {
-
+const AddBlog = ({ mode = "add", blog }) => {
     const dispatch = useDispatch()
+
     const [addBlog,
         { isSuccess: isAddedBlogSuccess,
             isLoading: isAddingBlog,
             isError: isErrorAddingBlog,
             error: errorAddingBlog
         }] = useAddBlogMutation()
+
+    const [editBlog, { isSuccess: isEditedBlogSuccess,
+        isLoading: isEditingBlog,
+        isError: isErrorEditingBlog,
+        error: errorEditingBlog
+    }] = useEditBlogMutation()
 
     const {
         register,
@@ -25,52 +31,93 @@ const AddBlog = () => {
         formState: { errors },
     } = useForm({
         defaultValues: {
-            isPrivate: false,
+            title: blog?.title || "",
+            description: blog?.description || "",
+            image: blog?.image || "",
+            body: blog?.body || "",
+            isPrivate: blog?.isPrivate ?? false,
         }
     });
 
     const onSubmit = async (data) => {
 
         try {
-            let user = JSON.parse(localStorage.getItem("user"))
-            const date = new Date().toISOString().split("T")[0];
-            const fullBlogData = {
-                id: nanoid(8),
-                date,
-                authorId: user.id,
-                authorName: user.name,
-                aurthorProfileImage: user.profileImage,
-                reactions: {
-                    "likes": 0,
-                    "comments": []
-                },
-                ...data,
+            if (mode === "add") {
+                try {
+                    let user = JSON.parse(localStorage.getItem("user"))
+                    const date = new Date().toISOString().split("T")[0];
+                    const fullBlogData = {
+                        id: nanoid(8),
+                        date,
+                        authorId: user.id,
+                        authorName: user.name,
+                        aurthorProfileImage: user.profileImage,
+                        reactions: {
+                            "likes": 0,
+                            "comments": []
+                        },
+                        ...data,
+                    }
+                    console.log(fullBlogData);
+                    await addBlog(fullBlogData);
+                    reset()
+                    toast.success("Blog added successfully");
+                    setTimeout(() => {
+                        dispatch(resetMode());
+                    }, 500)
+                } catch (error) {
+                    toast.error("Error Adding Blog")
+                    console.error(error.message())
+                }
             }
-            console.log(fullBlogData);
-            await addBlog(fullBlogData);
-            reset()
-            // isAddingBlog && toast.loading("Adding blog...")
-            dispatch(resetMode());
+
+            if (mode === "edit") {
+                try {
+                    await editBlog({
+                        id: blog.id,
+                        data,
+                    })
+                    toast.success("Blog updated successfully");
+                    reset();
+                    dispatch(resetMode());
+                } catch (error) {
+                    console.log("Error while updating blog");
+                    console.error(error.message)
+                }
+            }
 
         } catch (error) {
-            toast.error("Error Adding Blog")
+            toast.error("Something went wrong!")
             console.error(error.message())
         }
+
     }
     const handleCancle = () => {
         reset()
         dispatch(resetMode());
     }
 
+    // useEffect(() => {
+    //     if (isAddedBlogSuccess) {
+    //         toast.success("Blog added successfully.");
+    //         dispatch(resetMode());
+    //     }
+    //     if (isErrorAddingBlog) {
+    //         toast.error(errorAddingBlog?.data?.message || "Failed to add blog");
+    //     }
+    // }, [isAddedBlogSuccess, isErrorAddingBlog, dispatch])
+
     useEffect(() => {
-        if (isAddedBlogSuccess) {
-            toast.success("Blog added successfully.");
-            dispatch(resetMode());
+        if (mode === "edit" && blog) {
+            reset({
+                title: blog.title,
+                description: blog.description,
+                image: blog.image,
+                body: blog.body,
+                isPrivate: blog.isPrivate,
+            });
         }
-        if (isErrorAddingBlog) {
-            toast.error(errorAddingBlog?.data?.message || "Failed to add blog");
-        }
-    }, [isAddedBlogSuccess, isErrorAddingBlog, dispatch])
+    }, [mode, blog, reset]);
 
     return (
         <div>
@@ -160,7 +207,7 @@ const AddBlog = () => {
                 <button
                     type="submit"
                     className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
-                    Add Blog
+                    {mode === "add" ? "Add Blog" : "Update Blog"}
                 </button>
                 <button
                     type='button'

@@ -1,14 +1,18 @@
 import React from 'react'
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import { useGetBlogByIdQuery, useDeleteBlogMutation, useEditBlogMutation } from '../features/blogs/blogApi'
-import { useNavigate } from 'react-router-dom'
+import { setEditMode } from '../features/blogs/blogSlice'
+import AddBlog from '../components/AddBlog'
+import { useSelector, useDispatch } from 'react-redux'
 
 const BlogDetail = () => {
     const navigate = useNavigate()
-
+    const dispatch = useDispatch()
     const { id } = useParams();
     const location = useLocation()
     const isManageView = location.pathname.startsWith("/manage-blogs")
+    const { mode } = useSelector((state) => state.blogManipulation);
+
     let isOwner;
 
     const { data: blog, isLoading, isSuccess, isError, error } = useGetBlogByIdQuery(id)
@@ -33,6 +37,10 @@ const BlogDetail = () => {
 
             return <p>Blog deleted successfully</p>
         }
+    }
+
+    const handleEdit = () => {
+        dispatch(setEditMode())
     }
 
     try {
@@ -66,7 +74,7 @@ const BlogDetail = () => {
 
                 {(isOwner && isManageView) &&
                     <div className='options-sec'>
-                        <button className='opt-btn editBtn'>Edit</button>
+                        <button className='opt-btn editBtn' onClick={handleEdit}>Edit</button>
                         <button className='opt-btn deleteBtn' onClick={handleDelete}>Delete</button>
                     </div>
                 }
@@ -90,6 +98,15 @@ const BlogDetail = () => {
                 <p className='blog-likes'>❤️ {blog.reactions.likes}</p>
             </div>
 
+            {mode === "edit" && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+                    {/* Popup box */}
+                    <div className="bg-white w-[90%] max-w-md rounded-lg shadow-lg p-6 relative">
+                        <h3 className="text-lg font-semibold mb-4">Edit Blog</h3>
+                        <AddBlog mode={"edit"} blog={blog}>   </AddBlog>
+                    </div>
+                </div>
+            )}
 
         </div>
 

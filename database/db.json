@@ -47,6 +47,22 @@
       "password": "123456",
       "profileImage": "https://images.pexels.com/photos/24244744/pexels-photo-24244744.jpeg",
       "bio": "afifa lorem ipsum dolor sit"
+    },
+    {
+      "id": "2rFMdULy",
+      "name": "Bobby",
+      "email": "bobby@gmail.com",
+      "password": "123456",
+      "profileImage": "https://images.pexels.com/photos/28682345/pexels-photo-28682345.jpeg",
+      "bio": "lorem ipsum dolor sit"
+    },
+    {
+      "id": "jhg7_6ns",
+      "name": "Bobby",
+      "email": "bobby@gmail.com",
+      "password": "123456",
+      "profileImage": "https://images.pexels.com/photos/28682345/pexels-photo-28682345.jpeg",
+      "bio": "lorem ipsum dolor sit"
     }
   ],
   "blogs": [
@@ -115,8 +131,8 @@
       }
     },
     {
-      "id": "XI2vIXSH",
-      "date": "2026-01-28",
+      "id": "Yy6JR6P3",
+      "date": "2026-01-29",
       "authorId": "1",
       "authorName": "Hasib Inamdar",
       "aurthorProfileImage": "https://i.pravatar.cc/150?img=12",
@@ -124,11 +140,27 @@
         "likes": 0,
         "comments": []
       },
-      "title": "My isPrivate Blog",
-      "description": "Dont show in the blog page",
-      "image": "https://images.pexels.com/photos/28504954/pexels-photo-28504954.jpeg",
-      "isPrivate": true,
-      "body": "sjnisdb jhjsbdcsndkm sidjis  dcnsood "
+      "title": "New test blog after refactoring",
+      "description": "Loremasaskcalsklas",
+      "image": "https://images.pexels.com/photos/28682349/pexels-photo-28682349.jpeg",
+      "body": "jhasdas  jhs jas ash ca sja scka skcas ",
+      "isPrivate": false
+    },
+    {
+      "id": "DEvGkZBO",
+      "date": "2026-01-29",
+      "authorId": "jhg7_6ns",
+      "authorName": "Bobby",
+      "aurthorProfileImage": "https://images.pexels.com/photos/28682345/pexels-photo-28682345.jpeg",
+      "reactions": {
+        "likes": 0,
+        "comments": []
+      },
+      "title": "Most ipsum dolor sit Blog",
+      "description": "Test Description",
+      "image": "https://images.pexels.com/photos/6133958/pexels-photo-6133958.jpeg",
+      "body": "kjdnajndskcjkks",
+      "isPrivate": true
     }
   ]
 }
