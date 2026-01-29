@@ -161,6 +161,38 @@
       "image": "https://images.pexels.com/photos/6133958/pexels-photo-6133958.jpeg",
       "body": "kjdnajndskcjkks",
       "isPrivate": true
+    },
+    {
+      "id": "QaUZ_vfj",
+      "date": "2026-01-29",
+      "authorId": "jhg7_6ns",
+      "authorName": "Bobby",
+      "aurthorProfileImage": "https://images.pexels.com/photos/28682345/pexels-photo-28682345.jpeg",
+      "reactions": {
+        "likes": 0,
+        "comments": []
+      },
+      "title": "Test Blog with HTML tags",
+      "description": "Lorem ipsum folot",
+      "image": "https://images.pexels.com/photos/19825351/pexels-photo-19825351.jpeg",
+      "body": "<p>This is a simple blog body created just for testing purposes. It doesn’t focus on any specific topic and is meant to help you check layout, spacing, and styling.</p>\n\n<p>You can use this content to see how text looks inside your container, how fonts behave, and how margins feel across different screen sizes.</p>\n\n<ul>\n  <li>Lightweight and easy to read</li>\n  <li>Uses basic HTML tags</li>\n  <li>Good for UI testing</li>\n</ul>\n\n<p>If everything looks fine, you can later replace this with real content. Until then, this works perfectly as a placeholder.</p>\n\n<p>Happy building 🚀</p>\n",
+      "isPrivate": false
+    },
+    {
+      "id": "QB5_Hkfb",
+      "date": "2026-01-29",
+      "authorId": "jhg7_6ns",
+      "authorName": "Bobby",
+      "aurthorProfileImage": "https://images.pexels.com/photos/28682345/pexels-photo-28682345.jpeg",
+      "reactions": {
+        "likes": 0,
+        "comments": []
+      },
+      "title": "Can’t stop scrolling through your friends’ feed?",
+      "description": "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading.",
+      "image": "https://images.pexels.com/photos/11594551/pexels-photo-11594551.jpeg",
+      "body": "<p>\n      Welcome to your blog post. Use this space to connect with your readers and\n      potential customers in a way that’s current and interesting. Think of it\n      as an ongoing conversation where you can share updates about business,\n      trends, news, and more.\n    </p>\n    <h5>Design with Ease</h5>\n    <div class=\"highlighted-box\">\n      Do you have a design in mind for your blog? Whether you prefer a trendy\n      postcard look or you’re going for a more editorial style blog - there’s a\n      stunning layout for everyone.\n    </div>\n    <p>\n      Every layout comes with the latest social features built in. Readers will\n      be able to easily share posts on social networks like Facebook and\n      Twitter, view how many people have liked a post, made comments and more.\n      With the Wix, building your online community has never been easier.\n    </p>\n    <h5>Create Relevant Content</h5>\n    <p>\n      You’ll be posting loads of engaging content, so be sure to keep your blog\n      organized with Categories that also allow readers to explore more of what\n      interests them. Each category of your blog has its own page that’s fully\n      customizable. Add a catchy title, a brief description and a beautiful\n      image to the category page header to truly make it your own. You can also\n      add tags (<span class=\"hastags\">#vacation #dream #summer</span>) throughout your posts to reach more\n      people, and help readers search for relevant content. Using hashtags can\n      expand your post reach and help people find the content that matters to\n      them. Go ahead, <span class=\"hastags\">#hashtag</span> away.\n    </p>",
+      "isPrivate": false
     }
   ]
 }

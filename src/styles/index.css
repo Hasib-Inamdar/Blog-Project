@@ -40,17 +40,17 @@
 }
 
 .blogs-cnt {
-  @apply grid grid-cols-2 px-56;
+  @apply grid grid-cols-2 gap-3 px-72;
 }
 
 /* Blog Card */
 @layer components {
   .blog-card {
-    @apply grid-cols-1 m-2 bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col;
+    @apply grid-cols-1 m-2 bg-white border-[1px] overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col;
   }
 
   .blog-card .blog-image {
-    @apply w-full h-60 overflow-hidden;
+    @apply w-full h-80 overflow-hidden;
   }
 
   .blog-card .blog-image img {
@@ -82,50 +82,68 @@
   }
 
   .blog-card .blog-title {
-    @apply text-xl font-serif font-semibold text-gray-900 leading-snug hover:text-gray-700 transition-colors;
+    @apply text-xl font-[Montserrat] text-gray-900 leading-snug hover:text-gray-700 transition-colors;
   }
 
   .blog-card .blog-desc {
-    @apply text-gray-600 text-sm leading-relaxed;
+    @apply text-gray-600 text-sm leading-relaxed line-clamp-3;
   }
 }
 
 /* Blog Detail Page */
 @layer components {
   .blog-cnt {
-    @apply w-[65%] m-auto mt-10 p-9 border shadow-lg;
+    @apply flex flex-col gap-4 justify-evenly items-start w-[60%] m-auto mt-10 px-20 py-10 border shadow-lg;
   }
   .blog-cnt .author-dtls {
     @apply flex gap-2 justify-start items-center;
   }
   .blog-cnt .author-img {
-    @apply w-14 h-14 rounded-full overflow-hidden;
+    @apply w-10 h-10 rounded-full overflow-hidden flex items-center justify-center;
+  }
+  .blog-cnt .author-img img {
+    @apply w-full h-full object-cover block;
   }
   .blog-cnt .blog-date {
     @apply text-xs text-gray-500;
   }
-  .blog-title {
-    @apply text-4xl font-semibold;
+  .blog-cnt .blog-title {
+    @apply text-4xl font-semibold my-2;
   }
-  .blog-description {
-    @apply my-2;
+  .blog-cnt .blog-description {
+    @apply my-4 text-base;
   }
-  .blog-img-sec img {
+  .blog-cnt .blog-img-sec img {
     @apply w-full;
   }
-  .blog-header {
-    @apply flex justify-between items-center;
+  .blog-cnt .blog-header {
+    @apply w-full flex justify-between items-center;
   }
-  .options-sec {
+  .blog-cnt .options-sec {
     @apply flex gap-6 justify-between items-center;
   }
-  .options-sec .opt-btn {
-    @apply px-3 py-2 w-24;
+  .blog-cnt .options-sec .opt-btn {
+    @apply px-3 py-2 w-24 border-[1px] hover:bg-orange-600 hover:text-white transition-colors duration-300;
   }
-  .options-sec .deleteBtn {
-    @apply bg-red-200 hover:bg-red-300;
+  /* .blog-cnt .options-sec .deleteBtn {
+    @apply hover:bg-orange-600;
   }
-  .options-sec .editBtn {
-    @apply bg-blue-200 hover:bg-blue-300;
+  .blog-cnt .options-sec .editBtn {
+    @apply hover:bg-orange-600;
+  } */
+  .blog-cnt .blog-body-sec div {
+    @apply flex flex-col gap-5 justify-evenly items-start;
+  }
+  .blog-cnt .blog-body-sec div h5 {
+    @apply text-lg font-semibold text-slate-700;
+  }
+  .blog-cnt .blog-body-sec div p {
+    @apply text-base;
+  }
+  .blog-cnt .blog-body-sec div .hastags {
+    @apply text-orange-600 italic;
+  }
+  .blog-cnt .blog-body-sec div .highlighted-box {
+    @apply border-l-[3px] py-3 px-4 border-red-500 font-light text-xl italic;
   }
 }

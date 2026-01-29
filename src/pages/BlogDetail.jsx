@@ -3,6 +3,7 @@ import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import { useGetBlogByIdQuery, useDeleteBlogMutation, useEditBlogMutation } from '../features/blogs/blogApi'
 import { setEditMode } from '../features/blogs/blogSlice'
 import AddBlog from '../components/AddBlog'
+import DOMPurify from "dompurify";
 import { useSelector, useDispatch } from 'react-redux'
 
 const BlogDetail = () => {
@@ -49,10 +50,10 @@ const BlogDetail = () => {
             throw new Error(error);
         }
         isOwner = user.id == blog.authorId
-
     } catch (error) {
         console.log(error);
     }
+
     if (isLoading) {
         return <p>Loading detials...</p>
     }
@@ -91,7 +92,13 @@ const BlogDetail = () => {
             </div>
 
             <div className="blog-body-sec">
-                {blog.body}
+                <div
+                    className="prose max-w-none"
+                    dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(blog.body),
+                    }}
+                />
+                {/* {blog.body} */}
             </div>
 
             <div className="blog-likes-sec">
@@ -107,9 +114,7 @@ const BlogDetail = () => {
                     </div>
                 </div>
             )}
-
         </div>
-
     )
 }
 

@@ -181,8 +181,8 @@ const AddBlog = ({ mode = "add", blog }) => {
                         {...register("body", {
                             required: "Body is required",
                             maxLength: {
-                                value: 3000,
-                                message: "Body cannot exceed 3000 characters",
+                                value: 10000,
+                                message: "Body cannot exceed 10000 characters",
                             },
                         })}
                     />
