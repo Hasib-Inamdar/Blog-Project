@@ -175,3 +175,22 @@
     @apply w-fit;
   }
 }
+
+/* Profile Page */
+@layer base {
+  .profile-page-cnt {
+    @apply mt-10 grid grid-cols-2 gap-10 h-[100vh];
+  }
+  .profile-img-sec {
+    @apply p-32 bg-orange-50;
+  }
+  .profile-img-sec img {
+    @apply w-full h-full  object-cover block;
+  }
+  .profile-dtl-sec {
+    @apply px-20;
+  }
+  .profile-bio p {
+    @apply my-2;
+  }
+}
