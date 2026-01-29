@@ -192,10 +192,53 @@
 /* Footer Style */
 @layer components {
   footer {
-    @apply h-full bg-slate-600 w-full px-32 py-8
-    flex justify-between items-start gap-2 text-white;
+    @apply h-full bg-[#414141] w-full px-32 py-8 text-white
+    grid grid-cols-2;
   }
   footer .social-icon img {
     @apply w-10 h-auto text-white;
+  }
+  footer .social-icon {
+    @apply flex justify-start;
+  }
+  footer h4 {
+    @apply text-3xl font-semibold;
+  }
+  .footer-dtls {
+    @apply mt-5 flex flex-col gap-2;
+  }
+  .contact-form {
+    @apply mt-5;
+  }
+}
+
+/* Contact Form */
+@layer components {
+  .contact-form {
+    @apply flex gap-10 flex-col justify-start items-end;
+  }
+  .contact-form .name-sec {
+    @apply flex justify-between  items-center w-full;
+  }
+  .first-name-inpt,
+  .last-name-inpt {
+    @apply w-[45%];
+  }
+  .contact-form .email-sec {
+    @apply w-full;
+  }
+  .contact-form .msg-sec {
+    @apply w-full;
+  }
+  .contact-form input {
+    @apply w-full bg-[#414141] border-b-2 border-white;
+  }
+  .contact-form .msg-sec input {
+    @apply h-14;
+  }
+  .contact-form button {
+    @apply px-10 py-2 border-[1px]
+    hover:bg-white hover:text-[#414141]
+    transition-colors duration-300;
   }
 }

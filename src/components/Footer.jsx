@@ -10,7 +10,7 @@ const Footer = () => {
                     <img src="./images/insta.svg" alt="Insta" />
                     <img src="./images/twitter.svg" alt="Twitter" />
                 </div>
-                <div className="foot-dtls">
+                <div className="footer-dtls">
                     <h4>Inner Pieces</h4>
                     <p>123-456-7890</p>
                     <p>info@mysite.com</p>
@@ -20,7 +20,7 @@ const Footer = () => {
             <div className="contact-section">
                 <div className='contact-heading'>
                     <h4>Contact</h4>
-                    <p>Ask me anything</p>
+                    <p className='text-lg'>Ask me anything</p>
                 </div>
                 <ContactForm></ContactForm>
             </div>
