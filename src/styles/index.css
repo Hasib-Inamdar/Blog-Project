@@ -39,8 +39,23 @@
   }
 }
 
-.blogs-cnt {
-  @apply grid grid-cols-2 gap-3 px-72;
+@layer components {
+  .blogs-page-cnt {
+    @apply mt-6;
+  }
+  .blogs-page-cnt .blogs-page-header {
+    @apply w-[60%] m-auto my-10;
+  }
+  .blogs-cnt {
+    @apply grid grid-cols-2 gap-3 px-72;
+  }
+}
+
+/* Heading of the page */
+@layer components {
+  .page-heading {
+    @apply text-5xl font-semibold mb-4 mt-6;
+  }
 }
 
 /* Blog Card */
@@ -122,7 +137,7 @@
   .blog-cnt .options-sec {
     @apply flex gap-6 justify-between items-center;
   }
-  .blog-cnt .options-sec .opt-btn {
+  .opt-btn {
     @apply px-3 py-2 w-24 border-[1px] hover:bg-orange-600 hover:text-white transition-colors duration-300;
   }
   /* .blog-cnt .options-sec .deleteBtn {
@@ -145,5 +160,18 @@
   }
   .blog-cnt .blog-body-sec div .highlighted-box {
     @apply border-l-[3px] py-3 px-4 border-red-500 font-light text-xl italic;
+  }
+}
+
+/* Manage Blog */
+@layer components {
+  .manage-blog-cnt {
+    @apply mt-5;
+  }
+  .manage-blog-cnt .manage-blog-header {
+    @apply flex  justify-between items-center w-[60%] m-auto mb-5;
+  }
+  .manage-blog-cnt .add-blog-btn {
+    @apply w-fit;
   }
 }

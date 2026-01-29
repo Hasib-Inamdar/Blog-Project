@@ -9,12 +9,17 @@ const Blog = () => {
     console.log(allBlogs);
 
     return (
-        <div className='blogs-cnt'>
-            {
-                allBlogs?.map((blog) => (
-                    <BlogCard key={blog.id} blog={blog}></BlogCard>
-                ))
-            }
+        <div className='blogs-page-cnt'>
+            <div className="blogs-page-header">
+                <h2 className='page-heading'>Blogs</h2>
+            </div>
+            <div className="blogs-list blogs-cnt">
+                {
+                    allBlogs?.map((blog) => (
+                        <BlogCard key={blog.id} blog={blog}></BlogCard>
+                    ))
+                }
+            </div>
         </div>
     )
 }

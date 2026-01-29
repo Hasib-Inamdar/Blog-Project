@@ -23,28 +23,6 @@ export const ManageBlogs = () => {
     });
 
 
-
-
-    // const [
-    //     getUserBlogs,
-    //     { isLoading: isLoadingUserBlog, isError: isErrorLoadingUserBlog },
-    // ] = useLazyGetCurrentUserBlogsQuery();
-    // const user = JSON.parse(localStorage.getItem("user"));
-    // useEffect(() => {
-    //     if (!user?.id) return;
-
-    //     const fetchUserBlogs = async () => {
-    //         try {
-    //             const blogs = await getUserBlogs(user.id).unwrap();
-    //             setUserBlogs(blogs);
-    //         } catch (error) {
-    //             console.error("Failed to fetch user blogs", error);
-    //         }
-    //     };
-
-    //     fetchUserBlogs();
-    // }, [getUserBlogs, user?.id]);
-
     if (isLoadingUserBlog) {
         return <p>Loading your blogs...</p>;
     }
@@ -54,11 +32,11 @@ export const ManageBlogs = () => {
     }
 
     return (
-        <div>
-            <div className="flex justify-between items-center px-3">
-                <h2 className="text-xl font-semibold mb-4">My Blogs</h2>
+        <div className="manage-blog-cnt">
+            <div className="manage-blog-header">
+                <h2 className="page-heading">My Blogs</h2>
                 <button
-                    className="add-blog-btn"
+                    className=" opt-btn add-blog-btn"
                     onClick={() => dispatch(setAddMode())}
                 >
                     Add Blog
