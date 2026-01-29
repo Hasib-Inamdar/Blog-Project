@@ -56,108 +56,111 @@ const Register = () => {
     };
 
     return (
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-4 max-w-md mx-auto"
-        >
-            {/* Name */}
-            <div>
-                <input
-                    className="border p-2 w-full"
-                    placeholder="Full Name"
-                    {...register("name", {
-                        required: "Name is required",
-                        minLength: {
-                            value: 3,
-                            message: "Name must be at least 3 characters",
-                        },
-                    })}
-                />
-                {errors.name && (
-                    <p className="text-red-500 text-sm">{errors.name.message}</p>
-                )}
-            </div>
-
-            {/* Email */}
-            <div>
-                <input
-                    className="border p-2 w-full"
-                    type="email"
-                    placeholder="Email Address"
-                    {...register("email", {
-                        required: "Email is required",
-                        pattern: {
-                            value: /^\S+@\S+\.\S+$/,
-                            message: "Enter a valid email",
-                        },
-                    })}
-                />
-                {errors.email && (
-                    <p className="text-red-500 text-sm">{errors.email.message}</p>
-                )}
-            </div>
-
-            {/* Password */}
-            <div>
-                <input
-                    className="border p-2 w-full"
-                    type="password"
-                    placeholder="Password"
-                    {...register("password", {
-                        required: "Password is required",
-                        minLength: {
-                            value: 6,
-                            message: "Password must be at least 6 characters",
-                        },
-                    })}
-                />
-                {errors.password && (
-                    <p className="text-red-500 text-sm">{errors.password.message}</p>
-                )}
-            </div>
-
-            {/* Profile Image URL */}
-            <div>
-                <input
-                    className="border p-2 w-full"
-                    placeholder="Profile Image URL"
-                    {...register("profileImage", {
-                        required: "Profile image URL is required",
-                    })}
-                />
-                {errors.profileImage && (
-                    <p className="text-red-500 text-sm">
-                        {errors.profileImage.message}
-                    </p>
-                )}
-            </div>
-
-            {/* Bio */}
-            <div>
-                <textarea
-                    className="border p-2 w-full"
-                    placeholder="Short Bio"
-                    rows={3}
-                    {...register("bio", {
-                        required: "Bio is required",
-                        maxLength: {
-                            value: 200,
-                            message: "Bio cannot exceed 200 characters",
-                        },
-                    })}
-                />
-                {errors.bio && (
-                    <p className="text-red-500 text-sm">{errors.bio.message}</p>
-                )}
-            </div>
-
-            <button
-                type="submit"
-                className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+        <div className="my-8">
+            <h2 className="page-heading text-3xl text-center">User Registration</h2>
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col gap-4 max-w-md mx-auto"
             >
-                Register
-            </button>
-        </form>
+                {/* Name */}
+                <div>
+                    <input
+                        className="border p-2 w-full"
+                        placeholder="Full Name"
+                        {...register("name", {
+                            required: "Name is required",
+                            minLength: {
+                                value: 3,
+                                message: "Name must be at least 3 characters",
+                            },
+                        })}
+                    />
+                    {errors.name && (
+                        <p className="text-red-500 text-sm">{errors.name.message}</p>
+                    )}
+                </div>
+
+                {/* Email */}
+                <div>
+                    <input
+                        className="border p-2 w-full"
+                        type="email"
+                        placeholder="Email Address"
+                        {...register("email", {
+                            required: "Email is required",
+                            pattern: {
+                                value: /^\S+@\S+\.\S+$/,
+                                message: "Enter a valid email",
+                            },
+                        })}
+                    />
+                    {errors.email && (
+                        <p className="text-red-500 text-sm">{errors.email.message}</p>
+                    )}
+                </div>
+
+                {/* Password */}
+                <div>
+                    <input
+                        className="border p-2 w-full"
+                        type="password"
+                        placeholder="Password"
+                        {...register("password", {
+                            required: "Password is required",
+                            minLength: {
+                                value: 6,
+                                message: "Password must be at least 6 characters",
+                            },
+                        })}
+                    />
+                    {errors.password && (
+                        <p className="text-red-500 text-sm">{errors.password.message}</p>
+                    )}
+                </div>
+
+                {/* Profile Image URL */}
+                <div>
+                    <input
+                        className="border p-2 w-full"
+                        placeholder="Profile Image URL"
+                        {...register("profileImage", {
+                            required: "Profile image URL is required",
+                        })}
+                    />
+                    {errors.profileImage && (
+                        <p className="text-red-500 text-sm">
+                            {errors.profileImage.message}
+                        </p>
+                    )}
+                </div>
+
+                {/* Bio */}
+                <div>
+                    <textarea
+                        className="border p-2 w-full"
+                        placeholder="Short Bio"
+                        rows={3}
+                        {...register("bio", {
+                            required: "Bio is required",
+                            maxLength: {
+                                value: 200,
+                                message: "Bio cannot exceed 200 characters",
+                            },
+                        })}
+                    />
+                    {errors.bio && (
+                        <p className="text-red-500 text-sm">{errors.bio.message}</p>
+                    )}
+                </div>
+
+                <button
+                    type="submit"
+                    className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+                >
+                    Register
+                </button>
+            </form>
+        </div>
     );
 };
 

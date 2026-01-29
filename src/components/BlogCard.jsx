@@ -1,9 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 
 const BlogCard = ({ blog, isManageView = false }) => {
     const navigate = useNavigate()
+    const location = useLocation();
+    const isHomePage = location.pathname === "/";
 
     const handleClick = () => {
         if (isManageView) {
@@ -14,7 +16,7 @@ const BlogCard = ({ blog, isManageView = false }) => {
     }
 
     return (
-        <article className="blog-card" onClick={handleClick}>
+        <article className={isHomePage ? "blog-card home-blog-card" : " blog-card"} onClick={handleClick}>
             <div className="blog-image">
                 <img src={blog.image} alt={blog.title} />
             </div>

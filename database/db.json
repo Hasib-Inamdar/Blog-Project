@@ -63,6 +63,22 @@
       "password": "123456",
       "profileImage": "https://images.pexels.com/photos/28682345/pexels-photo-28682345.jpeg",
       "bio": "lorem ipsum dolor sit"
+    },
+    {
+      "id": "sfyUygyV",
+      "name": "Vishal",
+      "email": "vishal@gmail.com",
+      "password": "123456",
+      "profileImage": "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mollis elementum justo, sit amet malesuada est auctor quis. Nulla aliquet varius pellentesque. "
+    },
+    {
+      "id": "goXFFrTO",
+      "name": "Vishal",
+      "email": "vishal@gmail.com",
+      "password": "123456",
+      "profileImage": "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mollis elementum justo,"
     }
   ],
   "blogs": [

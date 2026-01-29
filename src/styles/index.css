@@ -62,7 +62,7 @@
 /* Blog Card */
 @layer components {
   .blog-card {
-    @apply grid-cols-1 m-2 bg-white border-[1px] overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col;
+    @apply grid-cols-1 m-2 bg-white border-[1px] overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col hover:cursor-pointer;
   }
 
   .blog-card .blog-image {
@@ -244,7 +244,11 @@
   }
 }
 
-/* Home Page */
+/* =============================================== */
+/*                     Home Page                   */
+/* =============================================== */
+
+/* Hero Section */
 @layer components {
   .home-main-cnt .hero-section {
     @apply grid grid-cols-2;
@@ -270,5 +274,87 @@
   .featured-blog button {
     @apply px-10 py-2 border-2 border-[#414141]
     hover:text-orange-500;
+  }
+}
+
+/* Recent Post Section */
+@layer components {
+  .recent-post-sec {
+    @apply w-[65%] m-auto my-20;
+  }
+  .recent-blog-section {
+    @apply flex flex-col gap-2 justify-evenly items-center;
+  }
+  .home-blog-card {
+    @apply grid grid-cols-2 hover:cursor-pointer;
+  }
+  /* .home-blog-card .blog-image {
+    @apply;
+  } */
+  .home-blog-card .blog-content {
+    @apply justify-center;
+  }
+}
+
+/* Quote - Image Section */
+@layer components {
+  .quote-img-sec {
+    @apply grid grid-cols-2;
+  }
+  .quote-cnt {
+    @apply px-28 py-10 text-center
+    flex flex-col justify-center items-center;
+  }
+  .quote-cnt .quote {
+    @apply font-bold text-6xl font-[Baskervville] leading-snug text-[#414141];
+  }
+  /* .quote-reference {
+    @apply;
+  } */
+}
+
+/* Gallery Section */
+@layer components {
+  .gallery-sec {
+    @apply w-[90%] m-auto my-20;
+  }
+  .gal-heading-sec {
+    @apply text-center mb-10;
+  }
+  .gal-img-sec {
+    @apply grid grid-cols-5 gap-10;
+  }
+  .gal-img-sec .gal-img {
+    @apply object-cover block;
+  }
+}
+
+/* Home page form section */
+@layer components {
+  .home-form-sec {
+    @apply w-[70%] m-auto my-20;
+  }
+  .home-form-sec .home-form-heading {
+    @apply text-center mb-10;
+  }
+  .home-form-sec .home-form-heading p {
+    @apply text-lg;
+  }
+  .home-page-contact-form button {
+    @apply px-20 py-2 border-[1px] border-[#414141]
+    hover:bg-white hover:text-[#414141]
+    transition-colors duration-300;
+  }
+  .home-page-contact-form input {
+    @apply w-full bg-white border-b-2 border-[#414141];
+  }
+  .home-page-contact-form {
+    @apply items-center;
+  }
+  .home-page-contact-form input {
+    @apply h-10;
+  }
+  .home-page-contact-form .msg-sec {
+    @apply hidden;
   }
 }

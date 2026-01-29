@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ContactForm = () => {
+const ContactForm = ({ isInFooter = true }) => {
     return (
-        <form className='contact-form' onSubmit={(e) => { e.preventDefault() }}>
+        <form className={isInFooter ? "contact-form" : "contact-form home-page-contact-form"} onSubmit={(e) => { e.preventDefault() }}>
             <div className='name-sec'>
                 <div className='first-name-inpt'>
                     <p>First Name</p>

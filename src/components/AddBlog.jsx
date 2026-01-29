@@ -203,19 +203,20 @@ const AddBlog = ({ mode = "add", blog }) => {
                     </label>
                 </div>
 
-
-                <button
-                    type="submit"
-                    className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
-                    {mode === "add" ? "Add Blog" : "Update Blog"}
-                </button>
-                <button
-                    type='button'
-                    className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
-                    onClick={handleCancle}
-                >
-                    Cancle
-                </button>
+                <div className='flex justify-evenly items-center'>
+                    <button
+                        type="submit"
+                        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                        {mode === "add" ? "Add Blog" : "Update Blog"}
+                    </button>
+                    <button
+                        type='button'
+                        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                        onClick={handleCancle}
+                    >
+                        Cancle
+                    </button>
+                </div>
             </form>
         </div>
     )

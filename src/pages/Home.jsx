@@ -1,6 +1,11 @@
 import React from 'react'
+import { useGetAllBlogsQuery } from '../features/blogs/blogApi'
+import BlogCard from '../components/BlogCard'
+import ContactForm from '../components/ContactForm'
 
 const Home = () => {
+    const { data: blogs, isLoading: isLoadingBlogs, isError: isErrorLoadingBlogs, error } = useGetAllBlogsQuery()
+
     return (
         <div className='home-main-cnt'>
 
@@ -29,14 +34,24 @@ const Home = () => {
                     Recent Posts
                 </h2>
                 <div className="recent-blog-section">
-
+                    {
+                        blogs?.map((blog) => (
+                            <BlogCard key={blog.id} blog={blog}></BlogCard>
+                        ))
+                    }
                 </div>
             </div>
 
 
             {/* Quote and Image section */}
-            <div className="quote-sec">
-
+            <div className="quote-img-sec">
+                <div className='quote-cnt'>
+                    <p className='quote'>” I always get to where I’m going by walking away from where I have been.”</p>
+                    <p className='quote-reference'>~ Winnie the Pooh, A.A. Milne</p>
+                </div>
+                <div className='img-sec'>
+                    <img src="https://static.wixstatic.com/media/f5af78_d7dc4ce6e37b42ce94fd69e41e81d09c~mv2.jpeg/v1/fill/w_950,h_1040,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f5af78_d7dc4ce6e37b42ce94fd69e41e81d09c~mv2.jpeg" alt="" />
+                </div>
             </div>
 
             {/* User Info section */}
@@ -46,7 +61,30 @@ const Home = () => {
 
             {/* Gallery Sections */}
             <div className="gallery-sec">
+                <div className="gal-heading-sec">
+                    <h2 className='page-heading'>Always Makes Me Smile</h2>
+                </div>
+                <div className="gal-img-sec">
+                    <img src="https://picsum.photos/800/400?random=1" alt="" className='gal-img' />
+                    <img src="https://picsum.photos/800/400?random=2" alt="" className='gal-img' />
+                    <img src="https://picsum.photos/800/400?random=3" alt="" className='gal-img' />
+                    <img src="https://picsum.photos/800/400?random=4" alt="" className='gal-img' />
+                    <img src="https://picsum.photos/800/400?random=5" alt="" className='gal-img' />
+                    <img src="https://picsum.photos/800/400?random=6" alt="" className='gal-img' />
+                    <img src="https://picsum.photos/800/400?random=7" alt="" className='gal-img' />
+                    <img src="https://picsum.photos/800/400?random=8" alt="" className='gal-img' />
+                    <img src="https://picsum.photos/800/400?random=9" alt="" className='gal-img' />
+                    <img src="https://picsum.photos/800/400?random=10" alt="" className='gal-img' />
+                </div>
+            </div>
 
+            {/* Contact Form */}
+            <div className='home-form-sec'>
+                <div className="home-form-heading">
+                    <h2 className='page-heading'>Join the Conversations</h2>
+                    <p>Get the content you need, just when you need it</p>
+                </div>
+                <ContactForm isInFooter={false}></ContactForm>
             </div>
         </div>
     )
