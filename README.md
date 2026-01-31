@@ -1,16 +1,37 @@
-# React + Vite
+# 📝 Blog Website – Inner Piece
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Inner Piece** is a simple multi-user blog website where users can create, manage, and share blog posts.  
+The project focuses on frontend concepts like authentication, state management, and UI handling.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 👥 Multi-user support
+- 🔐 Frontend-level authentication
+- ✍️ Create, update, and delete blogs
+- 🌍 Public and private blog visibility
+- 🔔 Toast notifications for user actions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** React
+- **State Management:** Redux
+- **Styling:** Tailwind CSS
+- **Database:** JSON (mock/local storage)
+- **Unique IDs & Tokens:** Nanoid, UUID
+- **Notifications:** react-toastify
+
+---
+
+## 📂 Project Overview
+
+- Users can register and log in
+- Authenticated users can:
+  - Create new blog posts
+  - Edit or delete their own blogs
+  - Set blog visibility as public or private
+- Public blogs are visible to all users
+- Private blogs are visible only to the author
