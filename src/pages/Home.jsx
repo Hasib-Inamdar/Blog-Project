@@ -2,10 +2,11 @@ import React from 'react'
 import { useGetAllBlogsQuery } from '../features/blogs/blogApi'
 import BlogCard from '../components/BlogCard'
 import ContactForm from '../components/ContactForm'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
     const { data: blogs, isLoading: isLoadingBlogs, isError: isErrorLoadingBlogs, error } = useGetAllBlogsQuery()
-
+    const navigate = useNavigate()
     return (
         <div className='home-main-cnt'>
 
@@ -23,7 +24,7 @@ const Home = () => {
                             <p>Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading....</p>
                         </div>
                     </div>
-                    <button>All Posts</button>
+                    <button onClick={() => navigate("/blogs")}>All Posts</button>
                     {/* TODO - Navigate to the blog page */}
                 </div>
             </div>
@@ -79,7 +80,7 @@ const Home = () => {
             </div>
 
             {/* Contact Form */}
-            <div className='home-form-sec'>
+            <div className='home-form-sec' id='home-form-sec'>
                 <div className="home-form-heading">
                     <h2 className='page-heading'>Join the Conversations</h2>
                     <p>Get the content you need, just when you need it</p>

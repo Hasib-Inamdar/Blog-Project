@@ -3,6 +3,7 @@ import './styles/App.css'
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter } from 'react-router-dom'
 import ProtectedRoute from './routes/ProtectedRoute'
+import ScrollToHash from './utilities/ScrollToHash';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,7 +12,10 @@ function App() {
     <>
       <Toaster position="top-right" reverseOrder={false} />
       <BrowserRouter>
-        <ProtectedRoute></ProtectedRoute>
+        <ScrollToHash />
+        <ProtectedRoute>
+
+        </ProtectedRoute>
       </BrowserRouter>
     </>
   )

@@ -50,7 +50,7 @@ const Navbar = () => {
                     </NavLink>
                 </div>
                 <div>
-                    <NavLink to={"/contact"} className={linkClass} end>
+                    <NavLink to={"/#home-form-sec"} className={linkClass} end>
                         <p>Contact</p>
                     </NavLink>
                 </div>
