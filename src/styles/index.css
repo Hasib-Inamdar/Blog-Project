@@ -20,6 +20,32 @@
   }
 }
 
+@layer base {
+  /* Hide the Google Translate Top Banner */
+  iframe.goog-te-banner-frame {
+    display: none !important;
+  }
+  .skiptranslate {
+    opacity: 0;
+  }
+  body {
+    top: 0px !important;
+  }
+
+  /* Hide the "Original Text" tooltip on hover */
+  .goog-tooltip {
+    display: none !important;
+  }
+  .goog-tooltip:hover {
+    display: none !important;
+  }
+  .goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+
 /* NAVBAR */
 @layer components {
   .navbar-sec {

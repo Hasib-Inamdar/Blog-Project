@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginSuccess, logout } from '../features/auth/authSlice';
 import { selectIsAuth } from '../features/auth/authSelectors';
 import { useNavigate } from 'react-router-dom';
+import GoogleTranslate from '../utilities/GoogleTranslateBridge';
+import LanguageSelector from '../utilities/LanguageSelector';
 
 const Navbar = () => {
 
@@ -54,7 +56,10 @@ const Navbar = () => {
                         <p>Contact</p>
                     </NavLink>
                 </div>
-
+                <div>
+                    {/* <GoogleTranslate /> */}
+                    <LanguageSelector></LanguageSelector>
+                </div>
                 {!isAuth &&
                     <div>
                         <NavLink to={"/login"} className={linkClass} end>
